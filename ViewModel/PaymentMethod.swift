@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// Enum representing different payment methods
+
 enum PaymentMethod: String, CaseIterable {
     case visa = "Visa"
     case mastercard = "MasterCard"

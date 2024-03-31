@@ -20,7 +20,7 @@ class FeedbackViewModel: ObservableObject {
             return
         }
         
-        // Convert UIImage to Data if an image is selected
+        
         var imageData: Data?
         if let image = image {
             imageData = image.jpegData(compressionQuality: 0.5)

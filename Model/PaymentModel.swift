@@ -13,5 +13,5 @@ struct PaymentModel {
     var expiryDate: String
     var cvv: String
     var paymentAmount: Double
-    // Add more payment details as needed
+    
 }

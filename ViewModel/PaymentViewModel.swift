@@ -14,8 +14,6 @@ class PaymentViewModel: ObservableObject {
     }
     
     func processPayment() {
-        // Implement payment processing logic here
-        // This could involve communicating with a payment gateway or other services
-        // After processing the payment, you may want to update UI or perform other actions
+       
     }
 }

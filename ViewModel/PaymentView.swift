@@ -12,8 +12,7 @@ struct PaymentView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) { // Add spacing between views
-                // Payment method selection
+            VStack(spacing: 20) {
                 ForEach(PaymentMethod.allCases, id: \.self) { method in
                     HStack {
                         Image(method.logoImageName)
@@ -26,11 +25,10 @@ struct PaymentView: View {
                     .padding()
                 }
                 
-                // Payment form fields with rounded rectangles
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.black, lineWidth: 0.2)
-                    .frame(height: 50) // Adjust the height of the RoundedRectangle
-                    .padding(.horizontal) // Reduce horizontal padding
+                    .frame(height: 50)
+                    .padding(.horizontal)
                     .overlay(
                         TextField("Card Number", text: $viewModel.payment.cardNumber)
                             .padding(.horizontal)
@@ -38,8 +36,8 @@ struct PaymentView: View {
                 
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.black, lineWidth: 0.2)
-                    .frame(height: 50) // Adjust the height of the RoundedRectangle
-                    .padding(.horizontal) // Reduce horizontal padding
+                    .frame(height: 50)
+                    .padding(.horizontal)
                     .overlay(
                         TextField("Expiry Date", text: $viewModel.payment.expiryDate)
                             .padding(.horizontal)
@@ -47,37 +45,37 @@ struct PaymentView: View {
                 
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.black, lineWidth: 0.2)
-                    .frame(height: 50) // Adjust the height of the RoundedRectangle
-                    .padding(.horizontal) // Reduce horizontal padding
+                    .frame(height: 50)
+                    .padding(.horizontal)
                     .overlay(
                         TextField("CVV", text: $viewModel.payment.cvv)
                             .padding(.horizontal)
                     )
                 
-                // Submit button
+               
                 Button("Submit Payment") {
                     viewModel.processPayment()
                 }
                 .padding()
-                .background(Color.green) // Set background color to green
-                .foregroundColor(.white) // Set text color to white
-                .cornerRadius(10) // Add corner radius for rounded corners
+                .background(Color.green)
+                .foregroundColor(.white)
+                .cornerRadius(10)
             }
-            .padding() // Add overall padding to the VStack
+            .padding()
             .navigationBarTitle("Payment", displayMode: .inline)
             .navigationBarItems(leading: Button(action: {
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "chevron.left")
-                    .foregroundColor(.black) // Set color of the chevron icon
-                    .imageScale(.large) // Adjust the size of the chevron icon
+                    .foregroundColor(.black)
+                    .imageScale(.large)
             })
             
         }
     }
 }
 
-// RadioButton component
+
 struct RadioButton: View {
     @Binding var selected: PaymentMethod?
     let id: String
@@ -98,7 +96,7 @@ struct RadioButton: View {
     }
 }
 
-// Preview for PaymentView
+
 struct PaymentView_Previews: PreviewProvider {
     static var previews: some View {
         let samplePayment = PaymentModel(paymentMethod: nil, cardNumber: "", expiryDate: "", cvv: "", paymentAmount: 0.0)

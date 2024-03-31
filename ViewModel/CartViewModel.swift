@@ -25,6 +25,6 @@ class CartViewModel: ObservableObject {
     }
     
     func checkout() {
-        // Implement checkout functionality here
+     
     }
 }
